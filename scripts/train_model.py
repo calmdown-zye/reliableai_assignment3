@@ -39,7 +39,7 @@ for epoch in range(5):
     print(f"Epoch {epoch+1} done")
 
 os.makedirs("models", exist_ok=True)
-model.eval()
+model.cpu().eval()
 dummy = torch.randn(1, 1, 28, 28)
 torch.onnx.export(
     model, dummy, "models/mnist_fc.onnx",
